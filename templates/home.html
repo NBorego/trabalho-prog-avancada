@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Feedbacks Recebidos</h2>
+
+{% if feedbacks %}
+<ul>
+  {% for f in feedbacks %}
+  <li>
+    <strong>{{ f.nome }}</strong> ({{ f.email }})<br />
+    <em>{{ f.mensagem }}</em>
+  </li>
+  <hr />
+  {% endfor %}
+</ul>
+{% else %}
+<p>Nenhum feedback recebido ainda.</p>
+{% endif %}
+
+<a href="{{ url_for('feedback') }}">Enviar novo feedback</a>
+{% endblock %}
